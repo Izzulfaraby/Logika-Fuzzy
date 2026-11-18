@@ -1,0 +1,68 @@
+================================================================================
+PETUNJUK PENGAMBILAN SCREENSHOT APLIKASI STREAMLIT
+Proyek: Sistem Pengendalian pH Hidroponik (Fuzzy Mamdani)
+================================================================================
+
+Catatan:
+Pengambilan screenshot secara otomatis melalui terminal dibatasi oleh permission
+socket lokal pada environment sandbox Windows (WinError 10013). Oleh karena itu,
+screenshot diambil langsung melalui browser dengan mengikuti panduan di bawah ini.
+
+--------------------------------------------------------------------------------
+LANGKAH MENJALANKAN APLIKASI
+--------------------------------------------------------------------------------
+1. Buka terminal (PowerShell / Command Prompt) di folder proyek:
+   cd "c:\Users\Hype G12\OneDrive\Tài liệu\Pemrograman\semester 5\logika fuzzy\Modul-3\Asesmen3_240306045_Izzul_Faraby"
+
+2. Jalankan aplikasi Streamlit:
+   streamlit run src/app.py
+
+3. Buka browser pada alamat yang muncul (biasanya http://localhost:8501).
+
+--------------------------------------------------------------------------------
+DAFTAR FILE SCREENSHOT YANG DIPERLUKAN (Simpan di folder assets/)
+--------------------------------------------------------------------------------
+
+1. assets/screenshot_aplikasi.png (Tampilan Utama / Default)
+   - Parameter input:
+     * pH sekarang   : 6.0
+     * pH sebelumnya : 6.0
+   - Deskripsi:
+     Tangkapan layar antarmuka utama lengkap dengan sidebar masukan, kartu hasil
+     rekomendasi ("Netral"), metrik kondisi air, tabel aturan aktif, dan grafik.
+
+2. assets/screenshot_skenario_1.png (Kondisi Asam / Penurunan pH)
+   - Parameter input:
+     * pH sekarang   : 4.8
+     * pH sebelumnya : 5.1
+   - Deskripsi:
+     Menunjukkan respon sistem ketika pH berada di bawah target dan memiliki tren
+     turun (rekomendasi koreksi positif: Naikkan Kuat / Sedang).
+
+3. assets/screenshot_skenario_2.png (Kondisi Transisi Mendekati Target)
+   - Parameter input:
+     * pH sekarang   : 5.5
+     * pH sebelumnya : 5.7
+   - Deskripsi:
+     Skenario pengujian standar (sesuai perhitungan manual pada laporan),
+     dengan rekomendasi koreksi bertahap menuju rentang target 5,8–6,2.
+
+4. assets/screenshot_skenario_3.png (Kondisi Basa / Kenaikan pH)
+   - Parameter input:
+     * pH sekarang   : 7.5
+     * pH sebelumnya : 7.2
+   - Deskripsi:
+     Menunjukkan respon sistem ketika pH berada di atas target dan cenderung naik
+     (rekomendasi koreksi negatif: Turunkan Kuat).
+
+--------------------------------------------------------------------------------
+TIPS PENGAMBILAN SCREENSHOT DI WINDOWS
+--------------------------------------------------------------------------------
+- Gunakan tombol shortcut Windows: "Win + Shift + S" untuk memilih area jendela browser.
+- Atau gunakan fitur full-page screenshot di Chrome/Edge:
+  1. Tekan F12 (Developer Tools).
+  2. Tekan Ctrl + Shift + P.
+  3. Ketik "Capture full size screenshot" lalu tekan Enter.
+  4. Ganti nama file unduhan sesuai dengan daftar file di atas dan simpan ke folder assets/.
+================================================================================
+

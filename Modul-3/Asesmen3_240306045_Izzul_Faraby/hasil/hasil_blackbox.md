@@ -1,0 +1,22 @@
+| ID | Skenario | Input (pH sekarang / sebelumnya) | Output diharapkan | Output aktual | Status |
+|:--:|---|:---:|---|---|:---:|
+| TC-01 | Batas bawah semesta | 0.0 / 0.0 | Naikkan Sedang (+45 s.d. +75) | Koreksi +60.00 (Naikkan Sedang); TERLALU RENDAH; STABIL | **PASS** |
+| TC-02 | Batas atas semesta | 14.0 / 14.0 | Turunkan Sedang (-75 s.d. -45) | Koreksi -60.00 (Turunkan Sedang); TERLALU TINGGI; STABIL | **PASS** |
+| TC-03 | Nilai tengah target, stabil | 6.0 / 6.0 | Netral (koreksi antara -15 dan +15) | Koreksi +0.00 (Netral); SESUAI TARGET; STABIL | **PASS** |
+| TC-04 | Rendah dan menurun | 4.8 / 5.1 | Naikkan Kuat (>= +75) | Koreksi +86.06 (Naikkan Kuat); TERLALU RENDAH; MENURUN | **PASS** |
+| TC-05 | Tinggi dan meningkat | 7.5 / 7.2 | Turunkan Kuat (<= -75) | Koreksi -86.06 (Turunkan Kuat); TERLALU TINGGI; MENINGKAT | **PASS** |
+| TC-06 | Rendah tetapi sudah naik | 4.8 / 4.5 | Naikkan Ringan (+15 s.d. +45), lebih kecil dari TC-04 | Koreksi +30.00 (Naikkan Ringan); TERLALU RENDAH; MENINGKAT | **PASS** |
+| TC-07 | Tinggi tetapi sudah turun | 7.5 / 7.8 | Turunkan Ringan (-45 s.d. -15), lebih kecil dari TC-05 | Koreksi -30.00 (Turunkan Ringan); TERLALU TINGGI; MENURUN | **PASS** |
+| TC-08 | BVA: tepat di batas bawah target | 5.8 / 5.8 | Netral (koreksi antara -15 dan +15) | Koreksi +0.00 (Netral); SESUAI TARGET; STABIL | **PASS** |
+| TC-09 | BVA: tepat di bawah batas target | 5.79 / 5.79 | Hampir netral (kontinu, koreksi antara -15 dan +15) | Koreksi +2.29 (Netral); TERLALU RENDAH; STABIL | **PASS** |
+| TC-10 | BVA: tepat di atas batas target | 6.21 / 6.21 | Hampir netral (kontinu, koreksi antara -15 dan +15) | Koreksi -2.29 (Netral); TERLALU TINGGI; STABIL | **PASS** |
+| TC-11 | Input negatif (di luar semesta) | -0.1 / 6.0 | Ditolak dengan pesan error | Ditolak: pH sekarang = -0.1 di luar rentang 0-14. | **PASS** |
+| TC-12 | Input melebihi batas atas | 14.1 / 6.0 | Ditolak dengan pesan error | Ditolak: pH sekarang = 14.1 di luar rentang 0-14. | **PASS** |
+| TC-13 | Input teks bukan angka | abc / 6.0 | Ditolak dengan pesan error | Ditolak: pH sekarang harus berupa bilangan (contoh: 6.2). | **PASS** |
+| TC-14 | Input NaN | nan / 6.0 | Ditolak dengan pesan error | Ditolak: pH sekarang tidak boleh NaN atau tak hingga. | **PASS** |
+| TC-15 | Input kosong |  / 6.0 | Ditolak dengan pesan error | Ditolak: pH sekarang harus berupa bilangan (contoh: 6.2). | **PASS** |
+| TC-16 | Koma desimal diterima | 6,2 / 6,0 | Diterima; delta pH = +0,2 | Koreksi -19.09 (Turunkan Ringan); SESUAI TARGET; MENINGKAT | **PASS** |
+| TC-17 | Simetri terhadap target 6,0 | 4.8 / 5.1 | koreksi(4,8; 5,1) = -koreksi(7,2; 6,9) | Koreksi +86.06 (Naikkan Kuat); TERLALU RENDAH; MENURUN | **PASS** |
+| TC-18 | Delta ekstrem +14 | 14.0 / 0.0 | Turunkan Kuat (<= -75) | Koreksi -86.06 (Turunkan Kuat); TERLALU TINGGI; MENINGKAT | **PASS** |
+| TC-19 | Batas stabilitas tren (delta = -0,10) | 3.5 / 3.6 | Diterima; tren STABIL, koreksi positif | Koreksi +65.12 (Naikkan Sedang); TERLALU RENDAH; STABIL | **PASS** |
+| TC-20 | Waktu respon inferensi | 6.0 / 5.7 | Selesai < 1 detik (NFR) | 0.06 ms (koreksi -30.0) | **PASS** |
