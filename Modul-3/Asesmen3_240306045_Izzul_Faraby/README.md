@@ -64,6 +64,7 @@ Asesmen3_240306045_Izzul_Faraby/
 │   └── naskah_video_demo.md
 ├── docs/
 │   ├── CHECKLIST_PENYERAHAN.md
+│   ├── Naskah_Presentasi.md
 │   └── PRD_Praktikum15.md
 ├── hasil/
 │   ├── agregasi_5.50_5.70.png
